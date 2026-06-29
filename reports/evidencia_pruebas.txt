@@ -1,0 +1,30 @@
+Evidencia de pruebas — EP3/EFT (pytest)
+Comando: python -m pytest tests/ -v
+=====================================================
+============================= test session starts =============================
+collecting ... collected 22 items
+
+tests/test_guardrails.py::test_mask_rut_conserva_cola PASSED             [  4%]
+tests/test_guardrails.py::test_mask_email_y_tarjeta PASSED               [  9%]
+tests/test_guardrails.py::test_detect_pii_tipos PASSED                   [ 13%]
+tests/test_guardrails.py::test_prompt_injection_detectado PASSED         [ 18%]
+tests/test_guardrails.py::test_prompt_injection_negativo PASSED          [ 22%]
+tests/test_guardrails.py::test_validate_input PASSED                     [ 27%]
+tests/test_guardrails.py::test_rate_limiter_bloquea PASSED               [ 31%]
+tests/test_guardrails.py::test_guard_bloquea_injection_y_sanea_pii PASSED [ 36%]
+tests/test_guardrails.py::test_count_masked PASSED                       [ 40%]
+tests/test_observability.py::test_tracer_genera_traza_con_pii_enmascarada PASSED [ 45%]
+tests/test_observability.py::test_telemetria_reproducible PASSED         [ 50%]
+tests/test_observability.py::test_metricas_globales_en_rango PASSED      [ 54%]
+tests/test_observability.py::test_consistencia PASSED                    [ 59%]
+tests/test_observability.py::test_seguridad_detecta_intentos PASSED      [ 63%]
+tests/test_observability.py::test_patrones_brecha_ambiguedad PASSED      [ 68%]
+tests/test_observability.py::test_anomalia_temporal_detectada PASSED     [ 72%]
+tests/test_observability.py::test_puntos_de_falla PASSED                 [ 77%]
+tests/test_rag.py::test_indice_construido PASSED                         [ 81%]
+tests/test_rag.py::test_recupera_relevante_interno PASSED                [ 86%]
+tests/test_rag.py::test_recupera_relevante_externo PASSED                [ 90%]
+tests/test_rag.py::test_scores_ordenados_descendente PASSED              [ 95%]
+tests/test_rag.py::test_responder_combina_fuentes PASSED                 [100%]
+
+============================= 22 passed in 1.62s ==============================

@@ -1,0 +1,9 @@
+escenario,n,precision_exito,acierto_herramienta,tasa_error,latencia_media_ms,latencia_p95_ms,tokens_medio,costo_usd
+multiagente_credito,64,0.859,0.953,0.125,9395.1,20957.7,3036.0,0.8865
+simulacion_credito,98,0.918,0.939,0.031,3395.2,6343.0,868.0,0.3973
+transferencia,96,0.844,0.948,0.125,2184.9,5587.6,565.0,0.2376
+registro_reclamo,101,0.871,0.881,0.059,1811.3,3729.5,541.0,0.2453
+consulta_ambigua,100,0.54,0.58,0.12,1596.9,2950.4,490.0,0.2214
+info_producto,101,0.95,0.98,0.03,1208.9,2929.6,465.0,0.2328
+consulta_saldo,95,0.979,0.989,0.011,1049.6,1854.5,369.0,0.1522
+seguridad_injection,33,0.879,1.0,0.121,139.4,205.8,195.0,0.0267

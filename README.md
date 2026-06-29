@@ -8,6 +8,20 @@ Posiblemente algunos bloques de código queden deprecados. Se estará haciendo l
 
 ---
 
+## 🎓 Entrega EP3 + EFT — Proyecto "Banco Digital Chile"
+
+La tercera fase del proyecto (observabilidad, trazabilidad y seguridad) y la
+consolidación final del Examen Transversal están documentadas aquí:
+
+- **Guía de ejecución y mapa de entregables:** [`README_EP3.md`](README_EP3.md)
+- **Documentos entregables (informes, presentación, guion, notebook):** [`entrega/`](entrega/)
+- **Pipeline reproducible en un comando:** `python run_observability.py`
+
+Código nuevo: [`observability/`](observability/) · [`security/`](security/) ·
+[`rag/`](rag/) · [`tests/`](tests/) · [`dashboard/`](dashboard/)
+
+---
+
 ## 📚 Descripción General
 
 El curso cubre desde los fundamentos de la IA generativa y el prompt engineering, hasta el desarrollo de agentes inteligentes y las mejores prácticas para llevar soluciones a producción, incluyendo observabilidad, seguridad y ética.
