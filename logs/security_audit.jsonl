@@ -58,3 +58,8 @@
 {"timestamp": "2026-06-29T13:36:25", "event": "pii_enmascarada", "detail": {"client": "demo", "campos": "1"}, "prev_hash": "9a625609073b3bbc", "hash": "1df32482924da721"}
 {"timestamp": "2026-06-29T13:36:25", "event": "prompt_injection_bloqueado", "detail": {"client": "demo", "patron": "ignora(?:r)?\\s+(?:las\\s+)?(?:instrucciones|reglas)\\s+(?:anteriores|previas)"}, "prev_hash": "1df32482924da721", "hash": "4e1f9acd4ccc1dc1"}
 {"timestamp": "2026-06-29T13:36:25", "event": "pii_enmascarada", "detail": {"client": "demo", "campos": "2"}, "prev_hash": "4e1f9acd4ccc1dc1", "hash": "ab19dfc4e2e09f9e"}
+{"timestamp": "2026-06-30T17:40:02", "event": "prompt_injection_bloqueado", "detail": {"client": "t", "patron": "reveal|revela(?:r)?\\s+(?:tu\\s+)?(?:system\\s+prompt|prompt\\s+de\\s+sistema|instrucciones)"}, "prev_hash": "ab19dfc4e2e09f9e", "hash": "2b6291a5d5d2fd76"}
+{"timestamp": "2026-06-30T17:40:02", "event": "pii_enmascarada", "detail": {"client": "t", "campos": "1"}, "prev_hash": "2b6291a5d5d2fd76", "hash": "bfd05537285a7971"}
+{"timestamp": "2026-06-30T17:40:05", "event": "pii_enmascarada", "detail": {"client": "demo", "campos": "1"}, "prev_hash": "bfd05537285a7971", "hash": "0f3f087d21810830"}
+{"timestamp": "2026-06-30T17:40:05", "event": "prompt_injection_bloqueado", "detail": {"client": "demo", "patron": "ignora(?:r)?\\s+(?:las\\s+)?(?:instrucciones|reglas)\\s+(?:anteriores|previas)"}, "prev_hash": "0f3f087d21810830", "hash": "33056271258661ed"}
+{"timestamp": "2026-06-30T17:40:05", "event": "pii_enmascarada", "detail": {"client": "demo", "campos": "2"}, "prev_hash": "33056271258661ed", "hash": "8216197e3f730148"}

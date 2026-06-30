@@ -421,6 +421,24 @@ def build():
         "pruebas): github.com/rogrosas/Ingenier-a-de-Soluciones-con-Inteligencia-Artificial. "
         "Reproducible con «python run_observability.py».", size=9, italic=True)
 
+    # ── Anexo A: Evidencias de ejecución ──────────────────────────────────────
+    salto_pagina(doc)
+    h1(doc, "Anexo A — Evidencias de ejecución (capturas)")
+    parrafo(doc,
+        "Capturas de la ejecución real de los componentes, reproducibles ejecutando "
+        "«entrega/evidencia/generar_evidencia.bat» o «python run_observability.py». La salida "
+        "completa se archiva en «entrega/evidencia/salida_ejecucion.txt».")
+    figura(doc, "ev_01_pipeline.png",
+           "Evidencia 1. Ejecución del pipeline de observabilidad: KPIs globales sobre 688 "
+           "interacciones (precisión 85,0%, latencia y uso de recursos).", width=6.3)
+    figura(doc, "ev_02_pruebas.png",
+           "Evidencia 2. Suite de pruebas automatizadas: 22/22 pruebas PASSED (pytest).", width=6.3)
+    figura(doc, "ev_03_seg_rag.png",
+           "Evidencia 3. Seguridad (enmascaramiento de PII y bloqueo de prompt-injection) y "
+           "RAG (recuperación combinando fuentes internas y externas).", width=6.3)
+    figura(doc, "07_dashboard_panel.png",
+           "Evidencia 4. Dashboard de monitoreo integrado (KPIs + visualizaciones).", width=6.3)
+
     doc.save(SALIDA)
     return SALIDA
 
