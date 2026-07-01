@@ -225,11 +225,33 @@ def build():
     rect(s, Inches(0.6), Inches(6.05), Inches(12.1), Inches(0.95), ICE,
          shape=MSO_SHAPE.ROUNDED_RECTANGLE)
     text(s, Inches(0.9), Inches(6.05), Inches(11.6), Inches(0.95),
-         [[("DEMO EN VIVO:  ", 14, True, NAVY, BFONT),
-           ("consulta de saldo con RUT → simulación de crédito multi-etapa → dashboard de métricas.",
-            14, False, DARKTXT, BFONT)]], anchor=MSO_ANCHOR.MIDDLE)
-    notas(s, "Aquí ejecutas la DEMO real (ten el entorno listo). Muestra memoria (recuerda el "
-             "saldo) y planificación (crédito multi-etapa). Si no hay API, usa el notebook. (~2 min)")
+         [[("EVIDENCIA DE EJECUCIÓN:  ", 14, True, NAVY, BFONT),
+           ("capturas reales de la corrida en las 2 diapositivas siguientes "
+            "(pipeline, 22 pruebas, seguridad y RAG).", 14, False, DARKTXT, BFONT)]],
+         anchor=MSO_ANCHOR.MIDDLE)
+    notas(s, "Explica las capacidades del agente. En lugar de demo en vivo, muestro la "
+             "evidencia de ejecución real en las 2 diapositivas siguientes (el sistema corre, "
+             "las 22 pruebas pasan, y la seguridad + RAG funcionan). (~2 min)")
+
+    # ── 5b. Evidencia de ejecución — pipeline y pruebas ───────────────────────
+    s = slide_blank(prs)
+    kicker(s, "E", "Evidencia de ejecución — pipeline y pruebas")
+    p1 = s.shapes.add_picture(os.path.join(CHARTS, "ev_01_pipeline.png"),
+                              Inches(2.9), Inches(1.5), width=Inches(7.5))
+    s.shapes.add_picture(os.path.join(CHARTS, "ev_02_pruebas.png"),
+                         Inches(2.9), Emu(p1.top + p1.height + Inches(0.12)), width=Inches(7.5))
+    notas(s, "Evidencia real: la ejecución del pipeline reporta los KPIs sobre 688 interacciones "
+             "(precisión 85%) y las 22 pruebas automatizadas pasan (verde). Reproducible con el "
+             ".bat de evidencia o 'python run_observability.py'.")
+
+    # ── 5c. Evidencia de ejecución — seguridad y RAG ──────────────────────────
+    s = slide_blank(prs)
+    kicker(s, "E", "Evidencia de ejecución — seguridad y RAG")
+    s.shapes.add_picture(os.path.join(CHARTS, "ev_03_seg_rag.png"),
+                         Inches(2.46), Inches(1.6), width=Inches(8.4))
+    notas(s, "Evidencia real: la capa de seguridad enmascara el RUT y bloquea el prompt-injection; "
+             "el pipeline RAG recupera combinando fuentes internas (banco) y externas (CMF, SERNAC, "
+             "Ley 19.628). Estas capturas reemplazan la demo en vivo.")
 
     # ── 6. LLM + RAG ──────────────────────────────────────────────────────────
     s = slide_blank(prs)
