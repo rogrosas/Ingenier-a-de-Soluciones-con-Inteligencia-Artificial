@@ -64,7 +64,7 @@ def build():
     )
 
     parrafo(doc,
-        "Este guion mapea 1:1 con las 11 diapositivas. La defensa simula una reunión "
+        "Este guion mapea 1:1 con las 13 diapositivas. La defensa simula una reunión "
         "ejecutiva: el/la docente representa a la dirección. Habla con seguridad, mira a la "
         "audiencia y apóyate en evidencia. Practica al menos una vez de principio a fin.")
     nota_ia(doc,
@@ -76,16 +76,18 @@ def build():
     tabla(doc, ["#", "Diapositiva", "Tiempo", "Foco rúbrica"], [
         ["1", "Portada", "0:20", "Apertura"],
         ["2", "El caso", "0:45", "IE1, IE4"],
-        ["3", "La solución", "0:45", "IE4, IE8"],
-        ["4", "Arquitectura", "0:50", "IE3, IE8"],
-        ["5", "Agente + demo", "2:00", "IE5, IE6, IE7"],
-        ["6", "LLM + RAG", "0:50", "IE1, IE2"],
-        ["7", "Observabilidad", "1:15", "IE9"],
-        ["8", "Trazabilidad", "1:00", "IE10, IE12"],
-        ["9", "Seguridad y ética", "0:55", "IE11"],
-        ["10", "Mejoras", "0:45", "IE12"],
-        ["11", "Cierre", "0:15", "IE13–IE15"],
-    ], anchos=[0.4, 2.8, 1.0, 2.2], size=9.5, fuente_resaltar_col0=True)
+        ["3", "La solución", "0:40", "IE4, IE8"],
+        ["4", "Arquitectura", "0:45", "IE3, IE8"],
+        ["5", "Agente funcional", "1:15", "IE5, IE6, IE7"],
+        ["6", "Evidencia — pipeline y pruebas", "0:45", "IE9"],
+        ["7", "Evidencia — seguridad y RAG", "0:45", "IE11, IE2"],
+        ["8", "Diseño LLM + RAG", "0:40", "IE1, IE2"],
+        ["9", "Observabilidad", "1:05", "IE9"],
+        ["10", "Trazabilidad", "0:55", "IE10, IE12"],
+        ["11", "Seguridad y ética", "0:45", "IE11"],
+        ["12", "Mejoras", "0:40", "IE12"],
+        ["13", "Cierre", "0:15", "IE13–IE15"],
+    ], anchos=[0.4, 3.1, 1.0, 1.9], size=9.5, fuente_resaltar_col0=True)
 
     h1(doc, "Guion diapositiva por diapositiva")
 
@@ -119,48 +121,59 @@ def build():
         "la capa de observabilidad. Integra así RA1, RA2 y RA3.",
         "“Veámoslo funcionando.”")
 
-    slide(doc, 5, "Agente funcional y demostración", "2:00",
-        "Las 3 columnas; luego ejecuta la demo real (o el notebook).",
-        "El agente integra cinco herramientas, memoria de corto plazo (ventana de 5 turnos) y de "
-        "largo plazo en disco, y planificación Plan-and-Execute con orquestación CrewAI de cuatro "
-        "roles. Lo muestro en vivo: primero consulto un saldo con RUT —noten que recuerda el "
-        "dato—, luego pido una simulación de crédito en varias etapas, y finalmente abro el "
-        "dashboard de métricas.",
-        "“Antes de los resultados, dos palabras sobre el diseño con LLM y RAG.”")
+    slide(doc, 5, "Agente funcional", "1:15",
+        "Las 3 columnas: herramientas, memoria y planificación.",
+        "El agente integra cinco herramientas de consulta, escritura y razonamiento; memoria de "
+        "corto plazo con una ventana de cinco turnos y de largo plazo en disco, que da continuidad "
+        "entre sesiones; y planificación Plan-and-Execute con orquestación CrewAI de cuatro roles "
+        "especializados.",
+        "“Y esto no es teoría: aquí está la evidencia de que funciona.”")
 
-    slide(doc, 6, "Diseño LLM + RAG", "0:50",
+    slide(doc, 6, "Evidencia de ejecución — pipeline y pruebas", "0:45",
+        "Capturas de consola: pipeline con KPIs y las 22 pruebas en verde.",
+        "Esta es la ejecución real del sistema. El pipeline procesa 688 interacciones y reporta "
+        "los indicadores: 85% de precisión, la latencia y el uso de recursos. Y abajo, las 22 "
+        "pruebas automatizadas pasan en verde, validando seguridad, observabilidad y RAG.",
+        "“También dejamos evidencia de la seguridad y del RAG.”")
+
+    slide(doc, 7, "Evidencia de ejecución — seguridad y RAG", "0:45",
+        "Captura de consola: guardrails y recuperación RAG.",
+        "Aquí se ve la seguridad en acción: el RUT y el correo quedan enmascarados y un intento de "
+        "prompt-injection es bloqueado. Y el RAG recupera combinando fuentes internas del banco "
+        "con fuentes externas, como la CMF, el SERNAC y la Ley 19.628.",
+        "“Con el agente demostrado, veamos el diseño que hay detrás.”")
+
+    slide(doc, 8, "Diseño LLM + RAG", "0:40",
         "Viñetas y el recuadro de recuperación combinada.",
         "El comportamiento se controla con prompts —rol, reglas, few-shot y chain-of-thought— y "
-        "las respuestas sobre productos se fundamentan con RAG. Lo relevante es que combinamos "
-        "fuentes internas, como el catálogo del banco, con fuentes externas como la normativa de "
-        "la CMF; en el ejemplo, una sola consulta recupera ambos orígenes.",
-        "“¿Y cómo se comporta el agente en producción? Lo medimos.”")
+        "las respuestas sobre productos se fundamentan con RAG, combinando fuentes internas del "
+        "banco con fuentes externas de referencia normativa.",
+        "“¿Y cómo se comporta el agente en el tiempo? Lo medimos.”")
 
-    slide(doc, 7, "Observabilidad — resultados", "1:15",
+    slide(doc, 9, "Observabilidad — resultados", "1:05",
         "Las tarjetas de KPI y los gráficos de precisión y latencia.",
-        "Instrumentamos cada interacción. Sobre 688 interacciones monitoreadas, el agente logra "
-        "85% de precisión, 6,9% de error y una latencia p95 de 8,3 segundos, y bloquea el 88% de "
-        "los intentos de manipulación. Por escenario se ve que las consultas claras superan el "
-        "90% y que el multi-agente domina la latencia.",
+        "Instrumentamos cada interacción. Sobre 688 interacciones, el agente logra 85% de "
+        "precisión, 6,9% de error y una latencia p95 de 8,3 segundos. Por escenario se ve que las "
+        "consultas claras superan el 90% y que el multi-agente domina la latencia.",
         "“Esos números además nos revelaron problemas concretos.”")
 
-    slide(doc, 8, "Trazabilidad — hallazgos clave", "1:00",
+    slide(doc, 10, "Trazabilidad — hallazgos clave", "0:55",
         "El gráfico temporal con el incidente y las viñetas.",
         "El análisis de trazabilidad detectó automáticamente un incidente el 11 de junio, con "
         "latencia y error tres desviaciones sobre lo normal. Identificó el cuello de botella en "
-        "la orquestación multi-agente y, sobre todo, que el principal predictor de éxito es elegir "
-        "bien la herramienta: las entradas ambiguas hunden la precisión 37 puntos.",
+        "la orquestación multi-agente y que el principal predictor de éxito es elegir bien la "
+        "herramienta: las entradas ambiguas hunden la precisión 37 puntos.",
         "“Todo esto bajo una capa de seguridad y uso responsable.”")
 
-    slide(doc, 9, "Seguridad y uso responsable", "0:55",
+    slide(doc, 11, "Seguridad y uso responsable", "0:45",
         "Los cinco controles y el recuadro normativo.",
         "La seguridad es transversal: enmascaramos datos personales antes de cualquier registro, "
-        "bloqueamos intentos de prompt-injection, limitamos la tasa de uso, auditamos con "
-        "integridad y exigimos confirmación humana en cada transferencia. Todo alineado con la "
-        "Ley 19.628, la CMF y OWASP. [Añade aquí tu reflexión ética propia.]",
+        "bloqueamos prompt-injection, limitamos la tasa de uso, auditamos con integridad y "
+        "exigimos confirmación humana en cada transferencia. Todo alineado con la Ley 19.628, la "
+        "CMF y OWASP. [Añade aquí tu reflexión ética propia.]",
         "“Con esta evidencia, propusimos mejoras priorizadas.”")
 
-    slide(doc, 10, "Mejoras propuestas", "0:45",
+    slide(doc, 12, "Mejoras propuestas", "0:40",
         "Las cinco mejoras numeradas.",
         "Cada mejora responde a un hallazgo: desambiguar la intención para subir la precisión; "
         "paralelizar el multi-agente para bajar latencia y costo; añadir resiliencia ante "
@@ -168,7 +181,7 @@ def build():
         "la desambiguación por su impacto.",
         "“Para cerrar.”")
 
-    slide(doc, 11, "Cierre", "0:15",
+    slide(doc, 13, "Cierre", "0:15",
         "Diapositiva de cierre.",
         "En síntesis, entregamos una solución medible, segura y escalable, que integra LLM, RAG, "
         "agentes y observabilidad de extremo a extremo. Quedo atento a sus preguntas. Muchas "
@@ -193,7 +206,8 @@ def build():
     ], size=10)
 
     caja(doc, "Recordatorios finales",
-        "• Practica la demo de principio a fin y ten un plan B (notebook) por si falla la API.\n"
+        "• La evidencia de ejecución va en las diapositivas 6 y 7 (capturas reales), así no "
+        "dependes de una demo en vivo. Si igual quieres mostrar el sistema, ten el notebook listo.\n"
         "• Habla con lenguaje técnico y respalda con cifras (IE13–IE15).\n"
         "• La claridad y la autocrítica puntúan más que la perfección técnica.")
 
